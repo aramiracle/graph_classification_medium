@@ -6,7 +6,7 @@ from torch_geometric.data import DataLoader
 from sklearn.model_selection import train_test_split
 
 from model import GINClassification
-from utils import train_model, extract_embeddings, collect_labels, predict_labels, visualize_embeddings
+from utils import draw_random_graph_samples, train_model, extract_embeddings, collect_labels, predict_labels, visualize_embeddings
 
 
 def main():
@@ -21,6 +21,10 @@ def main():
         
         # Split dataset into training and test sets
         train_dataset, test_dataset = train_test_split(dataset, test_size=0.2, random_state=42)
+
+        # Draw graphs from the test dataset before training
+        draw_random_graph_samples(test_dataset, dataset_name, dataset.num_classes)
+
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         test_loader = DataLoader(test_dataset, shuffle=False)
 
@@ -32,7 +36,7 @@ def main():
         train_model(model, train_loader, test_loader, optimizer, criterion, num_epochs=num_epochs, model_save_path=f'models/{dataset_name}')
 
         # Extract embeddings for test set
-        test_embeddings = extract_embeddings(model, test_loader)
+        test_embeddings = extract_embeddings(model, test_dataset)
 
         # Collect true labels
         true_labels = collect_labels(test_loader)

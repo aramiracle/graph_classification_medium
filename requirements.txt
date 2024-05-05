@@ -4,3 +4,4 @@ pandas==2.2.2
 scikit-learn==1.4.2
 tqdm==4.66.4
 matplotlib==3.8.4
+networkx==3.3
