@@ -13,7 +13,7 @@ def main():
     batch_size = 64
     num_epochs = 1000
 
-    datasets = ['MUTAG', 'ENZYMES', 'PROTEINS']
+    datasets = ['MUTAG', 'ENZYMES']
 
     for dataset_name in datasets:
         dataset = TUDataset(root=f'/tmp/{dataset_name}', name=dataset_name, use_node_attr=True)
