@@ -97,4 +97,4 @@ After running the main script, you can find trained models, training logs, and v
 
 ## Medium
 
-dfs
+I have provided a comprehensive description of this project on the [Medium website](https://medium.com/@a.r.amouzad.m/how-to-get-state-of-the-art-result-on-graph-classification-with-gnn-73afadff5d49)], offering a detailed overview of its various aspects and components.
